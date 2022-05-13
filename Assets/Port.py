@@ -16,7 +16,7 @@ subtractY = True
 circleSize = 10
 counter = 0
 
-# os.startfile("C:\\Users\\brade\\Documents\\Computing\\UnityProjects\\PortPractice\\PortPractice.exe")
+os.startfile("C:\\Users\\brade\\Documents\\Computing\\UnityProjects\\PortPractice\\PortPractice.exe")
 #print((struct.pack('f', 0.01)[3]))
 #print((struct.unpack('f', struct.pack('f', 0.01))[0]))
 
