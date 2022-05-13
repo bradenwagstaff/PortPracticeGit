@@ -44,7 +44,7 @@ public class SocketClientUnity : MonoBehaviour
     void Update()
     {
         FPS = 30;
-        Debug.Log(FPS);
+        // Debug.Log(FPS);
         Application.targetFrameRate = FPS;
         QualitySettings.vSyncCount = 0;
         if (!mySocket.Connected)
@@ -81,7 +81,8 @@ public class SocketClientUnity : MonoBehaviour
             //Debug.Log((float.Parse((((float)System.BitConverter.ToSingle(receiveBytes, 0 * sizeof(float))).ToString()))).GetType());
             cubeX = (float.Parse((((float)System.BitConverter.ToSingle(receiveBytes, 0 * sizeof(float))).ToString())));
             cubeY = (float.Parse((((float)System.BitConverter.ToSingle(receiveBytes, 1 * sizeof(float))).ToString())));
-            Debug.Log(cubeX);
+            cubeZ = (float.Parse((((float)System.BitConverter.ToSingle(receiveBytes, 2 * sizeof(float))).ToString())));
+            Debug.Log(cubeY);
             cubePosition.Set(cubeX, cubeY, cubeZ);
             cube.position += cubePosition * Time.deltaTime;
 

@@ -1,60 +1,37 @@
-import numpy as np
-from cmath import pi
-
-import matplotlib.pyplot as plot
-
+import pygame
 import sys
+pygame.init()
+fps=30
+fpsclock=pygame.time.Clock()
+sur_obj=pygame.display.set_mode((400,300))
+pygame.display.set_caption("Keyboard_Input")
+White=(255,255,255)
 
- 
+myX= 10
+myY= 10
 
-# Get x values of the sine wave
+def update(myX, myY):
+    
+    step=5
+    # while True:
+    sur_obj.fill(White)
+    pygame.draw.rect(sur_obj, (255,0,0), (myX, myY, 70, 65))
+    for eve in pygame.event.get():
+        if eve.type==pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+    key_input = pygame.key.get_pressed()   
+    if key_input[pygame.K_LEFT]:
+        myX -= step
+    if key_input[pygame.K_UP]:
+        myY -= step
+    if key_input[pygame.K_RIGHT]:
+        myX += step
+    if key_input[pygame.K_DOWN]:
+        myY += step
+    pygame.display.update()
+    fpsclock.tick(fps)
+        # return [p1, p2]
+    # print(f"X: {p1}")
 
-time        = np.arange(0, pi * 2, 0.1)
-
- 
-
-# Amplitude of the sine wave is sine of a variable like time
-
-amplitude   = np.sin(time)
-
- 
-
-# Plot a sine wave using time and amplitude obtained for the sine wave
-
-plot.plot(time, amplitude)
-
- 
-
-# Give a title for the sine wave plot
-
-plot.title('Sine wave')
-
- 
-
-# Give x axis label for the sine wave plot
-
-plot.xlabel('Time')
-
- 
-
-# Give y axis label for the sine wave plot
-
-plot.ylabel('Amplitude = sin(time)')
-
- 
-
-plot.grid(True, which='both')
-
- 
-
-plot.axhline(y=0, color='k')
-
- 
-
-plot.show()
-
- 
-
-# Display the sine wave
-
-plot.show()
+update(myX=10, myY=10)
